@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=9 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://cn5ammu7ed2k" path="res://Sprite-0002.png" id="2_0e48y"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://rigid_body_2d.gd" id="2_epypp"]
+[ext_resource type="PackedScene" uid="uid://bxulg6igpr2or" path="res://area_2d.tscn" id="4_0hol4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
 radius = 115.352
@@ -22,13 +23,14 @@ fill_to = Vector2(0, 0)
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1400, 297)
+position = Vector2(1400, 299)
 texture = ExtResource("1_wtcfe")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(562, 546)
+position = Vector2(561, 545)
 gravity_scale = 0.0
 script = ExtResource("2_epypp")
+rocket = ExtResource("4_0hol4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0.5, 0)
@@ -38,6 +40,10 @@ shape = SubResource("CircleShape2D_epypp")
 position = Vector2(2.5, 13)
 scale = Vector2(7.21875, 7.6875)
 texture = ExtResource("2_0e48y")
+
+[node name="Timer" type="Timer" parent="RigidBody2D"]
+wait_time = 0.2
+one_shot = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -50,7 +56,9 @@ position = Vector2(6, 325)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-92, 60)
+position = Vector2(-91, 55)
 scale = Vector2(-1.99409, -2.09604)
 energy = 2.15
 texture = SubResource("GradientTexture2D_0hol4")
+
+[connection signal="timeout" from="RigidBody2D/Timer" to="RigidBody2D" method="_on_timer_timeout"]
