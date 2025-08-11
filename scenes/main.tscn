@@ -28,22 +28,22 @@ fill_to = Vector2(0, 0)
 position = Vector2(1400, 299)
 texture = ExtResource("1_tefeu")
 
-[node name="player" type="RigidBody2D" parent="."]
+[node name="player2" type="RigidBody2D" parent="."]
 position = Vector2(564, 540)
 gravity_scale = 0.0
 script = ExtResource("2_o6xl0")
 rocket = ExtResource("3_tipki")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
 position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_epypp")
 
-[node name="Sprite-0002" type="Sprite2D" parent="player"]
+[node name="Sprite-0002" type="Sprite2D" parent="player2"]
 position = Vector2(2.5, 13)
 scale = Vector2(7.21875, 7.6875)
 texture = ExtResource("4_85g3d")
 
-[node name="Timer" type="Timer" parent="player"]
+[node name="Timer" type="Timer" parent="player2"]
 wait_time = 0.111
 one_shot = true
 
@@ -65,12 +65,12 @@ energy = 2.15
 texture = SubResource("GradientTexture2D_0hol4")
 
 [node name="EnemyShip1" type="Sprite2D" parent="."]
-position = Vector2(228, 144)
-scale = Vector2(8.125, 8.125)
+position = Vector2(340, -297)
+scale = Vector2(5, 5)
 texture = ExtResource("5_choun")
 
 [node name="EnemyBullet" type="Sprite2D" parent="."]
 position = Vector2(294, 275)
 texture = ExtResource("6_ya4ey")
 
-[connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
+[connection signal="timeout" from="player2/Timer" to="player2" method="_on_timer_timeout"]
