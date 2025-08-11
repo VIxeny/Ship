@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=15 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bxulg6igpr2or" path="res://scenes/bullet.tscn" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://cn5ammu7ed2k" path="res://assets/Sprite-0002.png" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bw1ritmlfgr7k" path="res://scenes/death_screen.tscn" id="4_choun"]
+[ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://c3qwi2lkjtpjb" path="res://scenes/enemy_ship.tscn" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://ckr71hal1pt6g" path="res://scripts/spawner.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://dq178peu1j5cu" path="res://scripts/control.gd" id="8_85g3d"]
@@ -14,7 +15,7 @@
 radius = 115.352
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(25.5, 673)
+size = Vector2(27.5, 1298)
 
 [sub_resource type="Gradient" id="Gradient_epypp"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -28,11 +29,11 @@ fill_to = Vector2(0, 0)
 [node name="main" type="Node"]
 
 [node name="picture_of_ships" type="Sprite2D" parent="."]
-position = Vector2(1400, 299)
+position = Vector2(2221, 332)
 texture = ExtResource("1_tefeu")
 
 [node name="player2" type="RigidBody2D" parent="."]
-position = Vector2(564, 540)
+position = Vector2(613, 600)
 gravity_scale = 0.0
 script = ExtResource("2_o6xl0")
 rocket = ExtResource("3_tipki")
@@ -40,25 +41,37 @@ deathScreen = ExtResource("4_choun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
 position = Vector2(0.5, 0)
+scale = Vector2(0.49, 0.49)
 shape = SubResource("CircleShape2D_epypp")
 
 [node name="Sprite-0002" type="Sprite2D" parent="player2"]
 position = Vector2(2.5, 13)
-scale = Vector2(7.21875, 7.6875)
+scale = Vector2(3.274, 3.607)
 texture = ExtResource("4_85g3d")
 
 [node name="Timer" type="Timer" parent="player2"]
 wait_time = 0.381
 one_shot = true
 
+[node name="Node2D" type="Node2D" parent="player2"]
+position = Vector2(-12, -26)
+
+[node name="Node2D2" type="Node2D" parent="player2"]
+position = Vector2(13, -27)
+
 [node name="walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
-position = Vector2(1162.25, 325)
+position = Vector2(1296, 367)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
-position = Vector2(6, 325)
+position = Vector2(-15, 363)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(638, 734)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -70,9 +83,10 @@ texture = SubResource("GradientTexture2D_0hol4")
 
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource("7_o6xl0")
-enemyShip = ExtResource("6_tefeu")
+appleDrop = ExtResource("5_o6xl0")
 
 [node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 3.0
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -109,6 +123,30 @@ offset_top = 566.0
 offset_right = 1034.0
 offset_bottom = 646.0
 texture = ExtResource("9_choun")
+
+[node name="EnemyShip" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(100, -64)
+
+[node name="EnemyShip2" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(420, -64)
+
+[node name="EnemyShip3" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(260, -64)
+
+[node name="EnemyShip4" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(580, -64)
+
+[node name="EnemyShip5" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(740, -64)
+
+[node name="EnemyShip6" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(900, -64)
+
+[node name="EnemyShip7" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(1060, -64)
+
+[node name="EnemyShip8" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(1220, -64)
 
 [connection signal="timeout" from="player2/Timer" to="player2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3qwi2lkjtpjb"]
 
-[ext_resource type="Script" uid="uid://07o7pqamx3o4" path="res://scripts/area_2d.gd" id="1_h5p0y"]
+[ext_resource type="Script" uid="uid://07o7pqamx3o4" path="res://scripts/EnemyShip.gd" id="1_h5p0y"]
 [ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="2_62ykb"]
 [ext_resource type="Texture2D" uid="uid://dmwaw46vgmvj2" path="res://assets/EnemyShip1.png" id="3_7etwm"]
 
@@ -8,7 +8,7 @@
 radius = 76.0066
 
 [node name="EnemyShip" type="Area2D"]
-scale = Vector2(1.36241, 0.96487)
+scale = Vector2(0.689, 0.689)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_h5p0y")
@@ -24,6 +24,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("3_7etwm")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 autostart = true
 

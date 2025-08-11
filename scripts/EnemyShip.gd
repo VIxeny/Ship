@@ -10,9 +10,3 @@ func _on_timer_timeout() -> void:
 func _process(delta: float):
 	if isMoving:
 		translate(Vector2(0,1.25))
-
-
-func _on_timer_2_timeout() -> void:
-	var temp = enemyBull.instantiate()
-	temp.position=Vector2(0, 100)+position
-	$"..".add_child(temp)

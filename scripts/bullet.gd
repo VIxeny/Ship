@@ -9,6 +9,7 @@ func _on_timer_timeout():
 
 func _on_area_entered(area: Area2D):
 	$"../Spawner".arrayx.erase(int(area.position.x))
+	$"../Spawner".shipCount -= 1
 	print("WWWWW"+str(area.position.x))
 	area.queue_free()
 	queue_free()
