@@ -1,8 +1,9 @@
 extends RigidBody2D
 var speed = 500
 var canShoot=true
-var bulletNum = 0
 var healths = 3
+var appleCount = 0
+@export var heartsSprite: Array[TextureRect]
 @export var rocket: PackedScene
 
 @export var deathScreen: PackedScene
@@ -24,10 +25,13 @@ func _process(delta: float):
 		linear_velocity = Vector2(0,0)
 	
 
-func takeDamage():
-	healths -= 1
-	%Hearts.disableHeart(healths)
-	if healths == 0:
-		var temp = deathScreen.instantiate()
-		$"..".add_child(temp)
-		
+func appleGot():
+	$"appleGotSound".play()
+	appleCount += 1
+	$"../CanvasLayer/Apples/Label".text = str(appleCount)
+func appleMiss():
+	pass
+	#$"appleMissSound".play()
+	#healths -= 1
+	#heartsSprite[healths].visible = false
+	#%Hearts.disableHeart(healths)

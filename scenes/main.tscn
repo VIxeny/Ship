@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=18 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bw1ritmlfgr7k" path="res://scenes/death_screen.tscn" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://c3qwi2lkjtpjb" path="res://scenes/enemy_ship.tscn" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://cmcl2ajnrx6hk" path="res://sounds/get.wav" id="6_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://c5fav0al4mwx0" path="res://sounds/miss.wav" id="7_eb6dy"]
 [ext_resource type="Script" uid="uid://ckr71hal1pt6g" path="res://scripts/spawner.gd" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://dq178peu1j5cu" path="res://scripts/control.gd" id="8_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c8u82t53cw2gt" path="res://assets/heart.png" id="9_choun"]
+[ext_resource type="Texture2D" uid="uid://ciibqa2vkwl3t" path="res://assets/EnemyBullet.png" id="11_trceg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
 radius = 115.352
@@ -32,32 +35,37 @@ fill_to = Vector2(0, 0)
 position = Vector2(2221, 332)
 texture = ExtResource("1_tefeu")
 
-[node name="player2" type="RigidBody2D" parent="."]
+[node name="player" type="RigidBody2D" parent="." node_paths=PackedStringArray("heartsSprite")]
+unique_name_in_owner = true
 position = Vector2(613, 600)
 gravity_scale = 0.0
 script = ExtResource("2_o6xl0")
+heartsSprite = [NodePath("../CanvasLayer/Hearts/TextureRect"), NodePath("../CanvasLayer/Hearts/TextureRect2"), NodePath("../CanvasLayer/Hearts/TextureRect3")]
 rocket = ExtResource("3_tipki")
 deathScreen = ExtResource("4_choun")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(0.5, 0)
 scale = Vector2(0.49, 0.49)
 shape = SubResource("CircleShape2D_epypp")
 
-[node name="Sprite-0002" type="Sprite2D" parent="player2"]
+[node name="Sprite-0002" type="Sprite2D" parent="player"]
 position = Vector2(2.5, 13)
 scale = Vector2(3.274, 3.607)
 texture = ExtResource("4_85g3d")
 
-[node name="Timer" type="Timer" parent="player2"]
+[node name="Timer" type="Timer" parent="player"]
 wait_time = 0.381
 one_shot = true
 
-[node name="Node2D" type="Node2D" parent="player2"]
+[node name="Node2D" type="Node2D" parent="player"]
 position = Vector2(-12, -26)
 
-[node name="Node2D2" type="Node2D" parent="player2"]
+[node name="Node2D2" type="Node2D" parent="player"]
 position = Vector2(13, -27)
+
+[node name="appleGotSound" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource("6_ya4ey")
 
 [node name="walls" type="StaticBody2D" parent="."]
 
@@ -70,7 +78,7 @@ position = Vector2(-15, 363)
 shape = SubResource("RectangleShape2D_epypp")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
-position = Vector2(638, 734)
+position = Vector2(639, 696)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_epypp")
 
@@ -124,6 +132,29 @@ offset_right = 1034.0
 offset_bottom = 646.0
 texture = ExtResource("9_choun")
 
+[node name="Apples" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Apples"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 580.0
+offset_right = 192.0
+offset_bottom = 620.0
+texture = ExtResource("11_trceg")
+
+[node name="Label" type="Label" parent="CanvasLayer/Apples"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 581.0
+offset_right = 253.0
+offset_bottom = 621.0
+theme_override_font_sizes/font_size = 29
+text = "0"
+
 [node name="EnemyShip" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(100, -64)
 
@@ -148,5 +179,8 @@ position = Vector2(1060, -64)
 [node name="EnemyShip8" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(1220, -64)
 
-[connection signal="timeout" from="player2/Timer" to="player2" method="_on_timer_timeout"]
+[node name="appleMissSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eb6dy")
+
+[connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
