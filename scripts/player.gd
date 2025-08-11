@@ -5,6 +5,8 @@ var bulletNum = 0
 var healths = 3
 @export var rocket: PackedScene
 
+@export var deathScreen: PackedScene
+
 func _ready():
 	var arr = [1, 2, 3, 2, 4]
 	arr.erase(2)  # Удаляет первую 2
@@ -36,5 +38,8 @@ func _on_timer_timeout() -> void:
 
 func takeDamage():
 	healths -= 1
+	%Hearts.disableHeart(healths)
 	if healths == 0:
-		print("You Died")
+		var temp = deathScreen.instantiate()
+		$"..".add_child(temp)
+		

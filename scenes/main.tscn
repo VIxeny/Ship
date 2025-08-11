@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=14 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bxulg6igpr2or" path="res://scenes/bullet.tscn" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://cn5ammu7ed2k" path="res://assets/Sprite-0002.png" id="4_85g3d"]
-[ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bw1ritmlfgr7k" path="res://scenes/death_screen.tscn" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://c3qwi2lkjtpjb" path="res://scenes/enemy_ship.tscn" id="6_tefeu"]
-[ext_resource type="Script" uid="uid://ckr71hal1pt6g" path="res://scenes/spawner.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://ckr71hal1pt6g" path="res://scripts/spawner.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://dq178peu1j5cu" path="res://scripts/control.gd" id="8_85g3d"]
+[ext_resource type="Texture2D" uid="uid://c8u82t53cw2gt" path="res://assets/heart.png" id="9_choun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
 radius = 115.352
@@ -34,6 +36,7 @@ position = Vector2(564, 540)
 gravity_scale = 0.0
 script = ExtResource("2_o6xl0")
 rocket = ExtResource("3_tipki")
+deathScreen = ExtResource("4_choun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
 position = Vector2(0.5, 0)
@@ -45,7 +48,7 @@ scale = Vector2(7.21875, 7.6875)
 texture = ExtResource("4_85g3d")
 
 [node name="Timer" type="Timer" parent="player2"]
-wait_time = 0.111
+wait_time = 0.381
 one_shot = true
 
 [node name="walls" type="StaticBody2D" parent="."]
@@ -65,13 +68,6 @@ scale = Vector2(1.99409, 2.09604)
 energy = 2.15
 texture = SubResource("GradientTexture2D_0hol4")
 
-[node name="EnemyBullet" parent="." instance=ExtResource("5_o6xl0")]
-position = Vector2(756, -297)
-
-[node name="EnemyShip" parent="." instance=ExtResource("6_tefeu")]
-position = Vector2(589, -297)
-scale = Vector2(5.96001, 4.22093)
-
 [node name="Spawner" type="Node" parent="."]
 script = ExtResource("7_o6xl0")
 enemyShip = ExtResource("6_tefeu")
@@ -81,9 +77,38 @@ autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="Hearts" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("arrayH")]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("8_85g3d")
+arrayH = [NodePath("TextureRect"), NodePath("TextureRect2"), NodePath("TextureRect3")]
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Hearts"]
+layout_mode = 0
+offset_left = 987.0
+offset_top = 566.0
+offset_right = 1067.0
+offset_bottom = 646.0
+texture = ExtResource("9_choun")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Hearts"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 566.0
+offset_right = 1100.0
+offset_bottom = 646.0
+texture = ExtResource("9_choun")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Hearts"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 566.0
+offset_right = 1034.0
+offset_bottom = 646.0
+texture = ExtResource("9_choun")
 
 [connection signal="timeout" from="player2/Timer" to="player2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
