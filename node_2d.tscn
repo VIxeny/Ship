@@ -27,7 +27,7 @@ position = Vector2(1400, 299)
 texture = ExtResource("1_wtcfe")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(561, 545)
+position = Vector2(564, 540)
 gravity_scale = 0.0
 script = ExtResource("2_epypp")
 rocket = ExtResource("4_0hol4")
@@ -42,7 +42,7 @@ scale = Vector2(7.21875, 7.6875)
 texture = ExtResource("2_0e48y")
 
 [node name="Timer" type="Timer" parent="RigidBody2D"]
-wait_time = 0.2
+wait_time = 0.111
 one_shot = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

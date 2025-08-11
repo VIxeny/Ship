@@ -22,9 +22,9 @@ func _process(delta: float):
 		$"Timer".start()
 		var temp = rocket.instantiate()
 		if bulletNum % 2 == 0:
-			temp.position=Vector2(600, 546)
+			temp.position=Vector2(90, 0)+position
 		else:
-			temp.position=Vector2(500, 546)
+			temp.position=Vector2(-90, 0)+position
 		$"..".add_child(temp)
 
 
