@@ -2,10 +2,13 @@ extends RigidBody2D
 var speed = 1000
 var canShoot=true
 var bulletNum = 0
+var healths = 3
 @export var rocket: PackedScene
 
 func _ready():
-	pass
+	var arr = [1, 2, 3, 2, 4]
+	arr.erase(2)  # Удаляет первую 2
+	print(arr)  # [1, 3, 2, 4]
 	#apply_central_impulse(Vector2(100,0))
 func _process(delta: float):
 	if Input.is_key_pressed(KEY_RIGHT):
@@ -30,3 +33,8 @@ func _process(delta: float):
 
 func _on_timer_timeout() -> void:
 	canShoot = true
+
+func takeDamage():
+	healths -= 1
+	if healths == 0:
+		print("You Died")

@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=12 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bxulg6igpr2or" path="res://scenes/bullet.tscn" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://cn5ammu7ed2k" path="res://assets/Sprite-0002.png" id="4_85g3d"]
-[ext_resource type="Texture2D" uid="uid://dmwaw46vgmvj2" path="res://assets/EnemyShip1.png" id="5_choun"]
-[ext_resource type="Texture2D" uid="uid://ciibqa2vkwl3t" path="res://assets/EnemyBullet.png" id="6_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://c3qwi2lkjtpjb" path="res://scenes/enemy_ship.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://ckr71hal1pt6g" path="res://scenes/spawner.gd" id="7_o6xl0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
 radius = 115.352
@@ -64,13 +65,25 @@ scale = Vector2(1.99409, 2.09604)
 energy = 2.15
 texture = SubResource("GradientTexture2D_0hol4")
 
-[node name="EnemyShip1" type="Sprite2D" parent="."]
-position = Vector2(340, -297)
-scale = Vector2(5, 5)
-texture = ExtResource("5_choun")
+[node name="EnemyBullet" parent="." instance=ExtResource("5_o6xl0")]
+position = Vector2(756, -297)
 
-[node name="EnemyBullet" type="Sprite2D" parent="."]
-position = Vector2(294, 275)
-texture = ExtResource("6_ya4ey")
+[node name="EnemyShip" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(589, -297)
+scale = Vector2(5.96001, 4.22093)
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("7_o6xl0")
+enemyShip = ExtResource("6_tefeu")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="player2/Timer" to="player2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
