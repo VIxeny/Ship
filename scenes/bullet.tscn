@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bxulg6igpr2or"]
 
-[ext_resource type="Script" uid="uid://bhigqjvf11qxp" path="res://area_2d.gd" id="1_1dtnr"]
-[ext_resource type="Texture2D" uid="uid://cehwldeqx0aif" path="res://roketa1.png" id="1_c0nl8"]
-[ext_resource type="Texture2D" uid="uid://carsyl4kjh4q4" path="res://roketa2.png" id="2_1dtnr"]
-[ext_resource type="Texture2D" uid="uid://omwc1ky38gnm" path="res://roketa3.png" id="3_c33a7"]
-[ext_resource type="Texture2D" uid="uid://ccakwwdv44jtk" path="res://roketa4.png" id="4_oqxq1"]
+[ext_resource type="Script" uid="uid://bhigqjvf11qxp" path="res://scripts/bullet.gd" id="1_1dtnr"]
+[ext_resource type="Texture2D" uid="uid://cehwldeqx0aif" path="res://assets/roketa1.png" id="1_c0nl8"]
+[ext_resource type="Texture2D" uid="uid://carsyl4kjh4q4" path="res://assets/roketa2.png" id="2_1dtnr"]
+[ext_resource type="Texture2D" uid="uid://omwc1ky38gnm" path="res://assets/roketa3.png" id="3_c33a7"]
+[ext_resource type="Texture2D" uid="uid://ccakwwdv44jtk" path="res://assets/roketa4.png" id="4_oqxq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l08u0"]
 size = Vector2(20, 30)

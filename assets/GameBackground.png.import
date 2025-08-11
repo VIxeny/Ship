@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmwaw46vgmvj2"
-path="res://.godot/imported/EnemyShip1.png-9b70f57097e73d1c0ba065c6c1a9112e.ctex"
+uid="uid://0ig1pvja00x6"
+path="res://.godot/imported/GameBackground.png-e9ef3c1daaa607c72c2c67446b817a28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EnemyShip1.png"
-dest_files=["res://.godot/imported/EnemyShip1.png-9b70f57097e73d1c0ba065c6c1a9112e.ctex"]
+source_file="res://assets/GameBackground.png"
+dest_files=["res://.godot/imported/GameBackground.png-e9ef3c1daaa607c72c2c67446b817a28.ctex"]
 
 [params]
 

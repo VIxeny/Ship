@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn5ammu7ed2k"
-path="res://.godot/imported/Sprite-0002.png-be2d0c11222c1eca468919d34832f25a.ctex"
+uid="uid://cehwldeqx0aif"
+path="res://.godot/imported/roketa1.png-b971b851a59afbb506cccb1c5b892700.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite-0002.png"
-dest_files=["res://.godot/imported/Sprite-0002.png-be2d0c11222c1eca468919d34832f25a.ctex"]
+source_file="res://assets/roketa1.png"
+dest_files=["res://.godot/imported/roketa1.png-b971b851a59afbb506cccb1c5b892700.ctex"]
 
 [params]
 

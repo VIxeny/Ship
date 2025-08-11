@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://carsyl4kjh4q4"
-path="res://.godot/imported/roketa2.png-b1bda69914675908773e69c294c36574.ctex"
+uid="uid://dmwaw46vgmvj2"
+path="res://.godot/imported/EnemyShip1.png-6c2e0f7ed73f857e54f82492457024d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://roketa2.png"
-dest_files=["res://.godot/imported/roketa2.png-b1bda69914675908773e69c294c36574.ctex"]
+source_file="res://assets/EnemyShip1.png"
+dest_files=["res://.godot/imported/EnemyShip1.png-6c2e0f7ed73f857e54f82492457024d1.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cehwldeqx0aif"
-path="res://.godot/imported/roketa1.png-d0c215303a8ca68b3bcada5e83b5a873.ctex"
+uid="uid://d0csf4blowiuh"
+path="res://.godot/imported/57535ea42d5fe560486bb84abff11494-4038108665.jpg-e25ce3cfda11cd17b34d44195d6e0dfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://roketa1.png"
-dest_files=["res://.godot/imported/roketa1.png-d0c215303a8ca68b3bcada5e83b5a873.ctex"]
+source_file="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg"
+dest_files=["res://.godot/imported/57535ea42d5fe560486bb84abff11494-4038108665.jpg-e25ce3cfda11cd17b34d44195d6e0dfd.ctex"]
 
 [params]
 
