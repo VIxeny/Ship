@@ -9,4 +9,4 @@ func _on_timer_timeout() -> void:
 
 func _process(delta: float):
 	if isMoving:
-		translate(Vector2(0,1.25))
+		translate(Vector2(0,230)*delta)

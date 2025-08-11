@@ -3,7 +3,7 @@ var speed = 500
 var canShoot=true
 var healths = 3
 var appleCount = 0
-@export var heartsSprite: Array[TextureRect]
+var isDeath = false
 @export var rocket: PackedScene
 
 @export var deathScreen: PackedScene
@@ -15,10 +15,10 @@ func _ready():
 	#apply_central_impulse(Vector2(100,0))
 func _process(delta: float):
 	speed += delta*5
-	if Input.is_key_pressed(KEY_RIGHT):
+	if Input.is_key_pressed(KEY_RIGHT) and not isDeath:
 		linear_velocity = Vector2(speed,0)
 		#apply_central_force(Vector2(speed,0))
-	elif Input.is_key_pressed(KEY_LEFT):
+	elif Input.is_key_pressed(KEY_LEFT) and not isDeath:
 		linear_velocity = Vector2(-speed,0)
 		#apply_central_force(Vector2(-speed,0))
 	else:
@@ -26,12 +26,16 @@ func _process(delta: float):
 	
 
 func appleGot():
-	$"appleGotSound".play()
-	appleCount += 1
-	$"../CanvasLayer/Apples/Label".text = str(appleCount)
+	if isDeath == false:
+		$"appleGotSound".play()
+		appleCount += 1
+		$"../CanvasLayer/Apples/Label".text = str(appleCount)
 func appleMiss():
-	pass
-	#$"appleMissSound".play()
-	#healths -= 1
-	#heartsSprite[healths].visible = false
-	#%Hearts.disableHeart(healths)
+	if isDeath == false:
+		$"appleMissSound".play()
+		healths -= 1
+		%Hearts.disableHeart(healths)
+	if healths == 0:
+		var temp=deathScreen.instantiate()
+		$"..".add_child(temp)
+		isDeath = true

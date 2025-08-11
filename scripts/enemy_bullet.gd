@@ -16,7 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.appleGot()
 		
 	else:
-		%player.appleMiss()
+		$"../player".appleMiss()
 	queue_free()
-func _ready():
-	print(%player)

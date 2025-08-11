@@ -35,12 +35,10 @@ fill_to = Vector2(0, 0)
 position = Vector2(2221, 332)
 texture = ExtResource("1_tefeu")
 
-[node name="player" type="RigidBody2D" parent="." node_paths=PackedStringArray("heartsSprite")]
-unique_name_in_owner = true
+[node name="player" type="RigidBody2D" parent="."]
 position = Vector2(613, 600)
 gravity_scale = 0.0
 script = ExtResource("2_o6xl0")
-heartsSprite = [NodePath("../CanvasLayer/Hearts/TextureRect"), NodePath("../CanvasLayer/Hearts/TextureRect2"), NodePath("../CanvasLayer/Hearts/TextureRect3")]
 rocket = ExtResource("3_tipki")
 deathScreen = ExtResource("4_choun")
 
@@ -66,6 +64,9 @@ position = Vector2(13, -27)
 
 [node name="appleGotSound" type="AudioStreamPlayer" parent="player"]
 stream = ExtResource("6_ya4ey")
+
+[node name="appleMissSound" type="AudioStreamPlayer" parent="player"]
+stream = ExtResource("7_eb6dy")
 
 [node name="walls" type="StaticBody2D" parent="."]
 
@@ -178,9 +179,6 @@ position = Vector2(1060, -64)
 
 [node name="EnemyShip8" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(1220, -64)
-
-[node name="appleMissSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_eb6dy")
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
