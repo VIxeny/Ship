@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://7dxa41ouluir"]
+[gd_scene load_steps=9 format=3 uid="uid://7dxa41ouluir"]
 
 [ext_resource type="Texture2D" uid="uid://dk17ibb6538jq" path="res://assets/playButton.png" id="1_ow34m"]
 [ext_resource type="Script" uid="uid://dcjitiibhk0sv" path="res://scripts/texture_button.gd" id="2_l72w3"]
 [ext_resource type="Texture2D" uid="uid://die3ebd6ihgfb" path="res://assets/skinsButton.png" id="3_826wr"]
+[ext_resource type="Script" uid="uid://npfl44uxsxtb" path="res://scripts/texture_button_2.gd" id="4_mipys"]
 [ext_resource type="Texture2D" uid="uid://bvxdddx3fnrbs" path="res://assets/muteButton.png" id="4_ucygd"]
 [ext_resource type="Script" uid="uid://bfp6m0hgq33ei" path="res://scripts/texture_button_3.gd" id="5_l72w3"]
 [ext_resource type="Texture2D" uid="uid://bnciabjdvq4es" path="res://assets/mute2Button.png" id="6_826wr"]
+[ext_resource type="PackedScene" uid="uid://dqmkim5nal6t4" path="res://scenes/skinMenu.tscn" id="8_8a8k8"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Node" type="Node"]
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 470.0
 offset_top = 281.0
 offset_right = 776.0
@@ -20,7 +24,7 @@ texture_normal = ExtResource("1_ow34m")
 stretch_mode = 0
 script = ExtResource("2_l72w3")
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer"]
 offset_left = 473.0
 offset_top = 431.0
 offset_right = 779.0
@@ -29,8 +33,9 @@ tooltip_text = "
 "
 texture_normal = ExtResource("3_826wr")
 stretch_mode = 0
+script = ExtResource("4_mipys")
 
-[node name="TextureButton3" type="TextureButton" parent="."]
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer"]
 offset_left = 955.0
 offset_top = 606.0
 offset_right = 1261.0
@@ -43,5 +48,9 @@ script = ExtResource("5_l72w3")
 on = ExtResource("4_ucygd")
 off = ExtResource("6_826wr")
 
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
-[connection signal="pressed" from="TextureButton3" to="TextureButton3" method="_on_pressed"]
+[node name="CanvasLayer2" parent="." instance=ExtResource("8_8a8k8")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureButton2" to="CanvasLayer/TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureButton3" to="CanvasLayer/TextureButton3" method="_on_pressed"]

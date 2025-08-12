@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=22 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
@@ -16,6 +16,7 @@
 [ext_resource type="FontFile" uid="uid://dsr73ylvnyqki" path="res://assets/DIGITALPIXELV4-REGULAR.OTF" id="13_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://8stgth61n0e7" path="res://assets/background1.png" id="14_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://bgbgiqcautupv" path="res://sounds/2016_ Clement Panchout_ Life is full of Joy.wav" id="16_jbj1t"]
+[ext_resource type="Script" uid="uid://cn6bffagw0urx" path="res://scripts/sprite_2d.gd" id="16_muem4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
 radius = 115.352
@@ -188,6 +189,7 @@ position = Vector2(1220, -64)
 z_index = -1
 position = Vector2(640, 386)
 texture = ExtResource("14_a8y0u")
+script = ExtResource("16_muem4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_jbj1t")

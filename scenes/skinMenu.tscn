@@ -1,20 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqmkim5nal6t4"]
+[gd_scene load_steps=9 format=3 uid="uid://dqmkim5nal6t4"]
 
 [ext_resource type="Texture2D" uid="uid://cyxa8hrjq30hc" path="res://assets/skin1Button.png" id="1_k5e7d"]
 [ext_resource type="Texture2D" uid="uid://bpn28jwwmmxte" path="res://assets/skin2Button.png" id="2_clb5i"]
+[ext_resource type="Script" uid="uid://cnlj22xeplix0" path="res://scripts/skin_1.gd" id="2_vl7ux"]
+[ext_resource type="Texture2D" uid="uid://8stgth61n0e7" path="res://assets/background1.png" id="3_y7m7s"]
+[ext_resource type="Script" uid="uid://b8amfjm7od5cq" path="res://scripts/skin_2.gd" id="4_tcowp"]
+[ext_resource type="Texture2D" uid="uid://bm5cci8ybhh56" path="res://assets/desertBackground.jpg" id="4_xjnnd"]
+[ext_resource type="Texture2D" uid="uid://dwcjm7ft0jx53" path="res://assets/returnButton.png" id="5_a3x8d"]
+[ext_resource type="Script" uid="uid://duu2bv7ctt0pv" path="res://scripts/texture_button_31.gd" id="6_xjnnd"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="skin1" type="TextureButton" parent="."]
 offset_left = 258.0
 offset_top = 622.0
 offset_right = 408.0
 offset_bottom = 694.0
 texture_normal = ExtResource("1_k5e7d")
+script = ExtResource("2_vl7ux")
 
-[node name="TextureButton2" type="TextureButton" parent="."]
-offset_left = 954.0
-offset_top = 625.0
-offset_right = 1104.0
-offset_bottom = 697.0
+[node name="skin2" type="TextureButton" parent="."]
+offset_left = 918.0
+offset_top = 613.0
+offset_right = 1068.0
+offset_bottom = 685.0
 texture_normal = ExtResource("2_clb5i")
+script = ExtResource("4_tcowp")
+
+[node name="Background1" type="Sprite2D" parent="."]
+position = Vector2(339, 356)
+scale = Vector2(0.451172, 0.451172)
+texture = ExtResource("3_y7m7s")
+
+[node name="DesertBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 353)
+scale = Vector2(0.960227, 0.960227)
+texture = ExtResource("4_xjnnd")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 112.0
+offset_bottom = 106.0
+texture_normal = ExtResource("5_a3x8d")
+stretch_mode = 0
+script = ExtResource("6_xjnnd")
+
+[connection signal="pressed" from="skin1" to="skin1" method="_on_pressed"]
+[connection signal="pressed" from="skin2" to="skin2" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton3" to="TextureButton3" method="_on_pressed"]

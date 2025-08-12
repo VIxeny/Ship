@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3qwi2lkjtpjb"]
+[gd_scene load_steps=6 format=3 uid="uid://c3qwi2lkjtpjb"]
 
 [ext_resource type="Script" uid="uid://07o7pqamx3o4" path="res://scripts/EnemyShip.gd" id="1_h5p0y"]
 [ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="2_62ykb"]
 [ext_resource type="Texture2D" uid="uid://dhuefcyuywayy" path="res://assets/appleTree1.png" id="3_h5p0y"]
+[ext_resource type="Script" uid="uid://h3aim7pfmqr3" path="res://scripts/apple_tree_1.gd" id="4_62ykb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tipki"]
 radius = 76.0066
@@ -29,6 +30,7 @@ wait_time = 1.045
 [node name="AppleTree1" type="Sprite2D" parent="."]
 scale = Vector2(4.425, 4.425)
 texture = ExtResource("3_h5p0y")
+script = ExtResource("4_62ykb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
