@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://7dxa41ouluir"]
+[gd_scene load_steps=11 format=3 uid="uid://7dxa41ouluir"]
 
+[ext_resource type="Script" uid="uid://ccaq0s0kguich" path="res://scripts/main_menu.gd" id="1_7la6k"]
 [ext_resource type="Texture2D" uid="uid://dk17ibb6538jq" path="res://assets/playButton.png" id="1_ow34m"]
 [ext_resource type="Script" uid="uid://dcjitiibhk0sv" path="res://scripts/texture_button.gd" id="2_l72w3"]
 [ext_resource type="Texture2D" uid="uid://die3ebd6ihgfb" path="res://assets/skinsButton.png" id="3_826wr"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b0xh2cvny3c8j" path="res://assets/menuWall1.png" id="9_8a8k8"]
 
 [node name="Node" type="Node"]
+script = ExtResource("1_7la6k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

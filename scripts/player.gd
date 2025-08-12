@@ -40,6 +40,7 @@ func appleMiss():
 		healths -= 1
 		%Hearts.disableHeart(healths)
 	if healths == 0:
+		YandexSDK.gameplay_stopped()
 		var temp=deathScreen.instantiate()
 		$"..".add_child(temp)
 		isDeath = true
