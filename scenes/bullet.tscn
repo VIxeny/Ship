@@ -43,7 +43,8 @@ position = Vector2(-2, 2)
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_nrb8d")
 autoplay = "default"
-frame_progress = 0.812596
+frame = 3
+frame_progress = 0.230878
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.996

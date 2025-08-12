@@ -1,13 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://7dxa41ouluir"]
+[gd_scene load_steps=7 format=3 uid="uid://7dxa41ouluir"]
 
-[ext_resource type="Texture2D" uid="uid://b35kqu5tlkk22" path="res://assets/buttonTexture.png" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://dk17ibb6538jq" path="res://assets/playButton.png" id="1_ow34m"]
+[ext_resource type="Script" uid="uid://dcjitiibhk0sv" path="res://scripts/texture_button.gd" id="2_l72w3"]
+[ext_resource type="Texture2D" uid="uid://die3ebd6ihgfb" path="res://assets/skinsButton.png" id="3_826wr"]
+[ext_resource type="Texture2D" uid="uid://bvxdddx3fnrbs" path="res://assets/muteButton.png" id="4_ucygd"]
+[ext_resource type="Script" uid="uid://bfp6m0hgq33ei" path="res://scripts/texture_button_3.gd" id="5_l72w3"]
+[ext_resource type="Texture2D" uid="uid://bnciabjdvq4es" path="res://assets/mute2Button.png" id="6_826wr"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 408.0
-offset_top = 262.0
-offset_right = 840.0
-offset_bottom = 461.0
-texture_normal = ExtResource("1_yqorp")
+offset_left = 470.0
+offset_top = 281.0
+offset_right = 776.0
+offset_bottom = 414.0
+tooltip_text = "
+"
+texture_normal = ExtResource("1_ow34m")
 stretch_mode = 0
+script = ExtResource("2_l72w3")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 473.0
+offset_top = 431.0
+offset_right = 779.0
+offset_bottom = 564.0
+tooltip_text = "
+"
+texture_normal = ExtResource("3_826wr")
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+offset_left = 955.0
+offset_top = 606.0
+offset_right = 1261.0
+offset_bottom = 739.0
+tooltip_text = "
+"
+texture_normal = ExtResource("4_ucygd")
+stretch_mode = 0
+script = ExtResource("5_l72w3")
+on = ExtResource("4_ucygd")
+off = ExtResource("6_826wr")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton3" to="TextureButton3" method="_on_pressed"]

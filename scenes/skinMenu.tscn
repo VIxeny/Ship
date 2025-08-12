@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqmkim5nal6t4"]
+
+[ext_resource type="Texture2D" uid="uid://cyxa8hrjq30hc" path="res://assets/skin1Button.png" id="1_k5e7d"]
+[ext_resource type="Texture2D" uid="uid://bpn28jwwmmxte" path="res://assets/skin2Button.png" id="2_clb5i"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 258.0
+offset_top = 622.0
+offset_right = 408.0
+offset_bottom = 694.0
+texture_normal = ExtResource("1_k5e7d")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 954.0
+offset_top = 625.0
+offset_right = 1104.0
+offset_bottom = 697.0
+texture_normal = ExtResource("2_clb5i")
