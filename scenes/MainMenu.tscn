@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7dxa41ouluir"]
+[gd_scene load_steps=10 format=3 uid="uid://7dxa41ouluir"]
 
 [ext_resource type="Texture2D" uid="uid://dk17ibb6538jq" path="res://assets/playButton.png" id="1_ow34m"]
 [ext_resource type="Script" uid="uid://dcjitiibhk0sv" path="res://scripts/texture_button.gd" id="2_l72w3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bfp6m0hgq33ei" path="res://scripts/texture_button_3.gd" id="5_l72w3"]
 [ext_resource type="Texture2D" uid="uid://bnciabjdvq4es" path="res://assets/mute2Button.png" id="6_826wr"]
 [ext_resource type="PackedScene" uid="uid://dqmkim5nal6t4" path="res://scenes/skinMenu.tscn" id="8_8a8k8"]
+[ext_resource type="Texture2D" uid="uid://b0xh2cvny3c8j" path="res://assets/menuWall1.png" id="9_8a8k8"]
 
 [node name="Node" type="Node"]
 
@@ -50,6 +51,14 @@ off = ExtResource("6_826wr")
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("8_8a8k8")]
 visible = false
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer3"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_8a8k8")
 
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton2" to="CanvasLayer/TextureButton2" method="_on_pressed"]

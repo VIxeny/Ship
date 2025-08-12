@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://2lcy4y5alg6f"]
+[gd_scene load_steps=5 format=3 uid="uid://2lcy4y5alg6f"]
 
 [ext_resource type="Script" uid="uid://clux3trgosbyi" path="res://scripts/enemy_bullet.gd" id="1_qx7rs"]
 [ext_resource type="Texture2D" uid="uid://dvqrnldh0710" path="res://assets/pixelApple1.png" id="2_qx7rs"]
+[ext_resource type="Script" uid="uid://cm8j86sh7f2yi" path="res://scripts/pixel_apple_1.gd" id="3_38r62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2qol"]
 
@@ -16,5 +17,6 @@ shape = SubResource("RectangleShape2D_d2qol")
 position = Vector2(-3.8147e-06, 0)
 scale = Vector2(1.01, 1.01)
 texture = ExtResource("2_qx7rs")
+script = ExtResource("3_38r62")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

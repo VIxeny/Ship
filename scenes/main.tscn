@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=23 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dq178peu1j5cu" path="res://scripts/control.gd" id="8_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c8u82t53cw2gt" path="res://assets/heart.png" id="9_choun"]
 [ext_resource type="Texture2D" uid="uid://dvqrnldh0710" path="res://assets/pixelApple1.png" id="12_trceg"]
+[ext_resource type="Script" uid="uid://bkbq8y1y6pmtn" path="res://scripts/texture_rect.gd" id="13_dp3eg"]
 [ext_resource type="FontFile" uid="uid://dsr73ylvnyqki" path="res://assets/DIGITALPIXELV4-REGULAR.OTF" id="13_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://8stgth61n0e7" path="res://assets/background1.png" id="14_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://bgbgiqcautupv" path="res://sounds/2016_ Clement Panchout_ Life is full of Joy.wav" id="16_jbj1t"]
@@ -150,6 +151,7 @@ offset_top = 660.0
 offset_right = 190.0
 offset_bottom = 700.0
 texture = ExtResource("12_trceg")
+script = ExtResource("13_dp3eg")
 
 [node name="Label" type="Label" parent="CanvasLayer/Apples"]
 layout_mode = 0
