@@ -100,7 +100,7 @@ script = ExtResource("7_o6xl0")
 appleDrop = ExtResource("5_o6xl0")
 
 [node name="Timer" type="Timer" parent="Spawner"]
-wait_time = 3.0
+wait_time = 0.355
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
