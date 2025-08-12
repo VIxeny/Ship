@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw1ritmlfgr7k"]
+[gd_scene load_steps=3 format=3 uid="uid://bw1ritmlfgr7k"]
 
+[ext_resource type="FontFile" uid="uid://dsr73ylvnyqki" path="res://assets/DIGITALPIXELV4-REGULAR.OTF" id="1_dwo6e"]
 [ext_resource type="Script" uid="uid://nlfepmcjk1pt" path="res://button.gd" id="1_uyutr"]
 
 [node name="DeathScreen" type="CanvasLayer"]
@@ -9,6 +10,7 @@ offset_left = 502.0
 offset_top = 221.0
 offset_right = 702.0
 offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("1_dwo6e")
 theme_override_font_sizes/font_size = 35
 text = "RESTART"
 script = ExtResource("1_uyutr")
