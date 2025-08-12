@@ -16,9 +16,11 @@ func _ready():
 func _process(delta: float):
 	speed += delta*5
 	if Input.is_key_pressed(KEY_RIGHT) and not isDeath:
+		$PixelMain1.flip_h=true
 		linear_velocity = Vector2(speed,0)
 		#apply_central_force(Vector2(speed,0))
 	elif Input.is_key_pressed(KEY_LEFT) and not isDeath:
+		$PixelMain1.flip_h=false
 		linear_velocity = Vector2(-speed,0)
 		#apply_central_force(Vector2(-speed,0))
 	else:

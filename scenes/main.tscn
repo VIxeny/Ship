@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bxulg6igpr2or" path="res://scenes/bullet.tscn" id="3_tipki"]
-[ext_resource type="Texture2D" uid="uid://cn5ammu7ed2k" path="res://assets/Sprite-0002.png" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://bw1ritmlfgr7k" path="res://scenes/death_screen.tscn" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://ot2amj1q17t4" path="res://assets/pixelMain1.png" id="5_trceg"]
 [ext_resource type="PackedScene" uid="uid://c3qwi2lkjtpjb" path="res://scenes/enemy_ship.tscn" id="6_tefeu"]
 [ext_resource type="AudioStream" uid="uid://cmcl2ajnrx6hk" path="res://sounds/get.wav" id="6_ya4ey"]
 [ext_resource type="AudioStream" uid="uid://c5fav0al4mwx0" path="res://sounds/miss.wav" id="7_eb6dy"]
@@ -36,21 +36,21 @@ position = Vector2(2221, 332)
 texture = ExtResource("1_tefeu")
 
 [node name="player" type="RigidBody2D" parent="."]
-position = Vector2(613, 600)
+position = Vector2(610, 585)
 gravity_scale = 0.0
 script = ExtResource("2_o6xl0")
 rocket = ExtResource("3_tipki")
 deathScreen = ExtResource("4_choun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(0.5, 0)
+position = Vector2(-24, 9)
 scale = Vector2(0.49, 0.49)
 shape = SubResource("CircleShape2D_epypp")
 
-[node name="Sprite-0002" type="Sprite2D" parent="player"]
-position = Vector2(2.5, 13)
-scale = Vector2(3.274, 3.607)
-texture = ExtResource("4_85g3d")
+[node name="PixelMain1" type="Sprite2D" parent="player"]
+position = Vector2(1, 1)
+scale = Vector2(3.78, 3.78)
+texture = ExtResource("5_trceg")
 
 [node name="Timer" type="Timer" parent="player"]
 wait_time = 0.381
