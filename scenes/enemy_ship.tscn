@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://07o7pqamx3o4" path="res://scripts/EnemyShip.gd" id="1_h5p0y"]
 [ext_resource type="PackedScene" uid="uid://2lcy4y5alg6f" path="res://scenes/enemy_bullet.tscn" id="2_62ykb"]
-[ext_resource type="Texture2D" uid="uid://dmwaw46vgmvj2" path="res://assets/EnemyShip1.png" id="3_7etwm"]
+[ext_resource type="Texture2D" uid="uid://dhuefcyuywayy" path="res://assets/appleTree1.png" id="3_h5p0y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tipki"]
 radius = 76.0066
@@ -15,13 +15,8 @@ script = ExtResource("1_h5p0y")
 enemyBull = ExtResource("2_62ykb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 1.00003)
+scale = Vector2(0.895, 0.895)
 shape = SubResource("CircleShape2D_tipki")
-
-[node name="EnemyShip1" type="Sprite2D" parent="."]
-position = Vector2(-3.99997, -1.00002)
-scale = Vector2(5, 5)
-texture = ExtResource("3_7etwm")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -30,6 +25,10 @@ autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 1.045
+
+[node name="AppleTree1" type="Sprite2D" parent="."]
+scale = Vector2(4.425, 4.425)
+texture = ExtResource("3_h5p0y")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
