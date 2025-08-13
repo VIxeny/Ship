@@ -41,6 +41,7 @@ func appleMiss():
 		%Hearts.disableHeart(healths)
 	if healths == 0:
 		WebBus.stop_gameplay()
+		WebBus.show_ad()
 		var temp=deathScreen.instantiate()
 		$"..".add_child(temp)
 		isDeath = true
