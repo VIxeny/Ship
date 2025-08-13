@@ -8,7 +8,9 @@ var fv = FontVariation.new()
 
 func _ready() -> void:
 	fv.base_font = load("res://assets/DIGITALPIXELV4-REGULAR.OTF")
-	leaderboard[$"../../player".appleCount] = 'Игрок(Ты)'
+	if ($"../../player".appleCount > Score.HighScore):
+		Score.HighScore = $"../../player".appleCount
+	leaderboard[Score.HighScore] = 'Игрок(Ты)'
 	var sorted_keys = leaderboard.keys()
 	sorted_keys.sort()
 	sorted_keys.reverse()
