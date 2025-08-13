@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=24 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Script" uid="uid://dmg56birddbuy" path="res://scripts/main.gd" id="1_0ld40"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://8stgth61n0e7" path="res://assets/background1.png" id="14_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://bgbgiqcautupv" path="res://sounds/2016_ Clement Panchout_ Life is full of Joy.wav" id="16_jbj1t"]
 [ext_resource type="Script" uid="uid://cn6bffagw0urx" path="res://scripts/sprite_2d.gd" id="16_muem4"]
+[ext_resource type="Script" uid="uid://bbhplhh7j0und" path="res://scripts/camera_2d.gd" id="19_0ld40"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
 radius = 115.352
@@ -200,7 +201,7 @@ autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(1.4, 1.4)
+script = ExtResource("19_0ld40")
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

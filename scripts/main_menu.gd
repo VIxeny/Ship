@@ -1,8 +1,10 @@
 extends Node
 
-func _ready() -> void:
-	YandexSDK.init_game()
+var lang :String
 
-func _on_timer_timeout() -> void:
-	YandexSDK.game_ready()
-	YandexSDK.show_interstitial_ad()
+func _ready() -> void:
+	if !WebBus.is_init:
+		await WebBus.inited
+	WebBus.ready()
+	lang = WebBus.get_language()
+	WebBus.show_ad()

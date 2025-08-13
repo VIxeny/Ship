@@ -62,12 +62,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_8a8k8")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-autostart = true
-
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton2" to="CanvasLayer/TextureButton2" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton3" to="CanvasLayer/TextureButton3" method="_on_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
