@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dj06xmyim872f"]
+[gd_scene load_steps=23 format=3 uid="uid://dj06xmyim872f"]
 
 [ext_resource type="Script" uid="uid://dmg56birddbuy" path="res://scripts/main.gd" id="1_0ld40"]
-[ext_resource type="Texture2D" uid="uid://d0csf4blowiuh" path="res://assets/57535ea42d5fe560486bb84abff11494-4038108665.jpg" id="1_tefeu"]
 [ext_resource type="Script" uid="uid://yxq0u5wm3yck" path="res://scripts/player.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bxulg6igpr2or" path="res://scenes/bullet.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://bw1ritmlfgr7k" path="res://scenes/death_screen.tscn" id="4_choun"]
@@ -37,10 +36,6 @@ fill_to = Vector2(0, 0)
 
 [node name="main" type="Node"]
 script = ExtResource("1_0ld40")
-
-[node name="picture_of_ships" type="Sprite2D" parent="."]
-position = Vector2(2221, 332)
-texture = ExtResource("1_tefeu")
 
 [node name="player" type="RigidBody2D" parent="."]
 position = Vector2(639, 681)
