@@ -194,5 +194,9 @@ script = ExtResource("16_muem4")
 stream = ExtResource("16_jbj1t")
 autoplay = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(1.4, 1.4)
+
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
